@@ -82,7 +82,7 @@ public class ItemSearchModal
         ImGui.SameLine();
 
         ImGui.SetCursorPosY(ImGui.GetCursorPosY() - 3.0f * ImGuiHelpers.GlobalScale);
-        ImGui.Image(Service.TextureProvider.GetIcon(item.Icon)!.ImGuiHandle, ImGuiHelpers.ScaledVector2(24.0f));
+        ImGui.Image(Service.TextureProvider.GetFromGameIcon(new(item.Icon))!.RentAsync().Result.ImGuiHandle, ImGuiHelpers.ScaledVector2(24.0f));
         ImGui.SameLine();
         ImGui.Text(item.Name.RawString);
     }

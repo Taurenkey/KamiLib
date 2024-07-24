@@ -63,7 +63,7 @@ public unsafe class ImageNode : IDisposable, IAtkNode
     public void UpdateOptions(ImageNodeOptions options)
     {
         Node->AtkResNode.Type = options.Type;
-        Node->AtkResNode.NodeID = options.Id;
+        Node->AtkResNode.NodeId = options.Id;
         Node->WrapMode = options.WrapMode;
         Node->Flags = (byte) options.Flags;
 

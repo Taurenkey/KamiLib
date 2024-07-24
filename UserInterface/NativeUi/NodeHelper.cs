@@ -10,7 +10,7 @@ public static unsafe class Node
         foreach (var index in Enumerable.Range(0, uldManager.NodeListCount))
         {
             var currentNode = uldManager.NodeList[index];
-            if (currentNode->NodeID != nodeId) continue;
+            if (currentNode->NodeId != nodeId) continue;
 
             return (T*) currentNode;
         }
@@ -68,7 +68,7 @@ public static unsafe class Node
     public static void UnlinkNodeAtStart(AtkResNode* resNode, AtkUnitBase* parent)
     {
         if (!IsAddonReady(parent)) return;
-        if (parent->RootNode->ChildNode->NodeID != resNode->NodeID) return;
+        if (parent->RootNode->ChildNode->NodeId != resNode->NodeId) return;
 
         var rootNode = parent->RootNode;
 

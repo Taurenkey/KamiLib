@@ -10,9 +10,8 @@ public static class KamiCommon
     public static string PluginName { get; private set; } = string.Empty;
     public static WindowManager WindowManager { get; private set; } = null!;
     public static LocalizationWrapper? Localization { get; private set; }
-    public static FontController FontManager { get; private set; } = null!;
 
-    public static void Initialize(DalamudPluginInterface pluginInterface, string pluginName)
+    public static void Initialize(IDalamudPluginInterface pluginInterface, string pluginName)
     {
         pluginInterface.Create<Service>();
 
@@ -20,7 +19,6 @@ public static class KamiCommon
 
         LocalizationManager.Instance.Initialize();
 
-        FontManager = new FontController();
         WindowManager = new WindowManager();
     }
 

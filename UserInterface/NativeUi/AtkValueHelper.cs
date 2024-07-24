@@ -42,8 +42,6 @@ public static class AtkValueExtensions
             ValueType.String => $"[{"string",7}]: {MemoryHelper.ReadStringNullTerminated(new nint(value.String))}",
             ValueType.String8 => $"[{"string8",7}]: {MemoryHelper.ReadStringNullTerminated(new nint(value.String))}",
             ValueType.Vector => $"[{"vector",7}]: No Representation Implemented",
-            ValueType.AllocatedString => $"[{"aString",7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}",
-            ValueType.AllocatedVector => $"[{"aVector",7}]: No Representation Implemented",
             _ => $"[{"unknown",7}]: [{value.Type}]: {BitConverter.ToString(BitConverter.GetBytes((long) value.String)).Replace("-", " ")}"
         };
     }

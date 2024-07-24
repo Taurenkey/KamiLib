@@ -115,7 +115,7 @@ public unsafe class TextNode : IDisposable, IAtkNode
     public void UpdateOptions(TextNodeOptions options)
     {
         Node->AtkResNode.Type = options.Type;
-        Node->AtkResNode.NodeID = options.Id;
+        Node->AtkResNode.NodeId = options.Id;
         Node->AtkResNode.SetHeight(options.FontSize);
 
         Node->TextColor = options.TextColor.ToByteColor();
@@ -136,11 +136,11 @@ public unsafe class TextNode : IDisposable, IAtkNode
             switch (atkEventType)
             {
                 case AddonEventType.MouseOver:
-                    AtkStage.GetSingleton()->TooltipManager.ShowTooltip(addon->ID, node, getTooltip.Invoke());
+                    AtkStage.Instance()->TooltipManager.ShowTooltip(addon->Id, node, getTooltip.Invoke());
                     break;
 
                 case AddonEventType.MouseOut:
-                    AtkStage.GetSingleton()->TooltipManager.HideTooltip(addon->ID);
+                    AtkStage.Instance()->TooltipManager.HideTooltip(addon->Id);
                     break;
             }
         }
